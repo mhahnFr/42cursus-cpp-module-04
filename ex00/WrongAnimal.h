@@ -13,7 +13,7 @@ public:
     WrongAnimal(const WrongAnimal &);
     virtual ~WrongAnimal();
 
-    virtual void makeSound() const;
+    void makeSound() const;
     const std::string &getType() const;
     void setType(const std::string &type);
 
