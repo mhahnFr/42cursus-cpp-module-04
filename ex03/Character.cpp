@@ -26,10 +26,12 @@ Character::~Character() {
 
 Character &Character::operator=(const Character &other) {
     if (&other != this) {
-        for (int i = 4; i < 4; i++) {
+        name = other.getName();
+        for (int i = 0; i < 4; i++) {
             if (inventory[i] != 0L) {
                 delete inventory[i];
             }
+            inventory[i] = 0L;
             if (other.inventory[i] != 0L) {
                 inventory[i] = other.inventory[i]->clone();
             }
@@ -52,13 +54,13 @@ void Character::equip(AMateria *m) {
 }
 
 void Character::unequip(int idx) {
-    if (idx > 0 && idx < 4) {
+    if (idx >= 0 && idx < 4) {
         inventory[idx] = 0L;
     }
 }
 
 void Character::use(int idx, ICharacter &target) {
-    if (idx > 0 && idx < 4) {
+    if (idx >= 0 && idx < 4) {
         inventory[idx]->use(target);
     }
 }

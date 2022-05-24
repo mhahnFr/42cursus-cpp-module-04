@@ -24,7 +24,7 @@ public:
     Character & operator=(const Character &);
 
 private:
-    const std::string name;
+    std::string name;
     AMateria *inventory[4];
 };
 

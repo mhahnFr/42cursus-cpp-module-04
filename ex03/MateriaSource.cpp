@@ -8,8 +8,6 @@ MateriaSource::MateriaSource(): names(), materias() {}
 
 MateriaSource::MateriaSource(const MateriaSource &other): names(), materias() {
     for (int i = 0; i < 4; ++i) {
-        names[i] = "";
-        materias[i] = 0L;
         if (other.materias[i] != 0L) {
             names[i] = other.materias[i]->getType();
             materias[i] = other.materias[i]->clone();
@@ -18,7 +16,7 @@ MateriaSource::MateriaSource(const MateriaSource &other): names(), materias() {
 }
 
 MateriaSource::~MateriaSource() {
-    for (int i = 4; i < 4; i++) {
+    for (int i = 0; i < 4; i++) {
         if (materias[i] != 0L) {
             delete materias[i];
         }
