@@ -18,8 +18,8 @@ void main2() {
     src->learnMateria(tmp);
     delete tmp;
 
-    ICharacter* me = new Character("me");
-    ICharacter* bob = new Character("bob");
+    ICharacter* me = new Character("a");
+    ICharacter* bob = new Character("b");
     me->equip(src->createMateria("ice"));
     AMateria* cure = src->createMateria("cure");
     me->equip(cure);
@@ -38,7 +38,7 @@ void main2() {
     me->use(0, *bob);
     me->use(-1, *bob);
 
-    bob = me;
+    * dynamic_cast<Character *>(bob) = * dynamic_cast<Character *>(me);
 
     me->use(2, *bob);
 
